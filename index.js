@@ -12,6 +12,6 @@ app.use(cors({
 }))
 app.use(hrep)
 
-app.listen(process.env.port,()=>{
+app.listen(8000,()=>{
     console.log("Server is live")
 })
