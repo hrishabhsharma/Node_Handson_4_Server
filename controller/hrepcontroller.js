@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken")
 const bycrypt = require("bcrypt")
+const saltround = 10
 let store = []
 
 const register = (req,res)=>{
@@ -9,7 +10,7 @@ const register = (req,res)=>{
         if(match){
             return res.send({msg:"This Email is already registered, Please use new Email"})
         }
-        const hashpass = bycrypt.hashSync(credential.password,process.env.saltround)
+        const hashpass = bycrypt.hashSync(credential.password,saltround)
         const token = jwt.sign({Email : credential.email},process.env.scretkey,{expiresIn: "10 days"})
         const temp = {
             name:     credential.name,
