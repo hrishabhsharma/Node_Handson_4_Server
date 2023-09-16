@@ -53,7 +53,7 @@ const login = (req,res)=>{
 }
 
 const dashboard = (req,res)=>{
-    res.send("This is dashboard router which is accessed for particular token")
+    res.send({msg:"This is dashboard router which is accessed for particular token"})
 }
 
 module.exports = {login,register,dashboard}
